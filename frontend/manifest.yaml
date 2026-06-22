@@ -48,6 +48,7 @@ metadata:
   name: frontend
   namespace: ellamma-ecommerce
 spec:
+  type: LoadBalancer
   selector:
     project: ecommerce-project
     component: frontend
