@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: debug
+  namespace: ellamma-ecommerce
+  labels:
+    name: debug
+    project: ecommerce-project
+spec:
+  containers:
+  - name: debug
+    image: shankarntr/debug:v1
