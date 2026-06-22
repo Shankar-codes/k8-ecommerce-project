@@ -11,8 +11,9 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      purpose: mongodb
       project: ecommerce-project
+      component: mongodb
+      tier: db
   template:
     metadata:
       labels:
