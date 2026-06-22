@@ -24,3 +24,31 @@ spec:
       containers:
       - name: mongodb
         image: shankarntr/mongodb:v1
+      readinessProbe:
+        tcpSocket:
+          port: 27017
+        initialDelaySeconds: 10
+        periodSeconds: 10
+      livenessProbe:
+        tcpSocket:
+          port: 27017
+        initialDelaySeconds: 5
+        periodSeconds: 5
+
+---
+
+appVersion: v1
+kind: Service
+metadata:
+  name: mongodb
+  namespace: ellamma-ecommerce
+spec:
+  selector:
+    project: ecommerce-project
+    component: mongodb
+    tier: db
+  ports:
+    - protocol: TCP
+      port: 27017 #service Port
+      targetPort: 27017 #container Port
+
