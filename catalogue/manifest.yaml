@@ -21,7 +21,7 @@ spec:
         component: catalogue
         tier: backend
     spec:
-      container:
+      containers:
       - name: catalogue
         image: shankarntr/catalogue:v1
         ports:
@@ -50,7 +50,7 @@ spec:
   selector:
     project: ecommerce-project
     component: catalogue
-    tier: db
+    tier: backend
   ports:
     - protocol: TCP
       port: 8080 #service Port
