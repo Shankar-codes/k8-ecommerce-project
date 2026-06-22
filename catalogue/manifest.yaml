@@ -24,6 +24,7 @@ spec:
       containers:
       - name: catalogue
         image: shankarntr/catalogue:v1
+        imagePullPolicy: Always
         ports:
         - name: liveness-port
           containerPort: 8080        
