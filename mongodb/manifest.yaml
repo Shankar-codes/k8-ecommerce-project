@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mongodb
+  namespace: ellamma-ecommerce
+  labels:
+    project: ecommerce-project
+    component: mongodb
+    tier: db
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      purpose: mongodb
+      project: ecommerce-project
+  template:
+    metadata:
+      labels:
+        project: ecommerce-project
+        component: mongodb
+        tier: db
+    spec:
+      containers:
+      - name: mongodb
+        image: shankarntr/mongodb:v1
