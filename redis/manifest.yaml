@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: mongodb
+  name: redis
   namespace: ellamma-ecommerce
   labels:
     project: ecommerce-project
@@ -22,7 +22,7 @@ spec:
         tier: db
     spec:
       containers:
-      - name: mongodb
+      - name: redis
         image: shankarntr/redis:v1
         imagePullPolicy: Always
         readinessProbe:
