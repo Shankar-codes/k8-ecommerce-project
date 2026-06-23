@@ -102,7 +102,7 @@ spec:
             name: frontend-config
         ports:
         - name: liveness-port
-          containerPort: 80
+          containerPort: 8080
         readinessProbe:
           httpGet:
             path: /health
