@@ -107,14 +107,14 @@ spec:
           httpGet:
             path: /health
             port: liveness-port
-          failureThreshold: 1
-          periodSeconds: 15
+          failureThreshold: 10
+          periodSeconds: 10
         livenessProbe:
           httpGet:
             path: /health
             port: liveness-port
-          failureThreshold: 1
-          periodSeconds: 15
+          failureThreshold: 20
+          periodSeconds: 20
         volumeMounts:
         - name: frontend-config
           mountPath: /etc/nginx/nginx.cnf
