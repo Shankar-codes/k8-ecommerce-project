@@ -115,6 +115,14 @@ spec:
             port: liveness-port
           failureThreshold: 1
           periodSeconds: 15
+        volumeMounts:
+        - name: frontend-config
+          mountPath: /etc/nginx/nginx.cnf
+          subPath: nginx.cnf
+      volumes:
+          - name: frontend-config
+            configMap:
+              name: frontend-config
 ---
 
 apiVersion: v1
