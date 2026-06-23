@@ -4,7 +4,7 @@ metadata:
   name: frontend-config
   namespace: ellamma-ecommerce
 data:
-  nginx.cnf: |
+  nginx.conf: |
     user nginx;
     worker_processes auto;
     error_log /var/log/nginx/error.log notice;
@@ -78,20 +78,20 @@ metadata:
   labels:
     project: ecommerce-project
     component: frontend
-    tier: backend
+    tier: frontend
 spec:
   replicas: 1
   selector:
     matchLabels:
       project: ecommerce-project
       component: frontend
-      tier: backend
+      tier: frontend
   template:
     metadata:
       labels:
         project: ecommerce-project
         component: frontend
-        tier: backend
+        tier: frontend
     spec:
       containers:
       - name: frontend
@@ -117,8 +117,8 @@ spec:
           periodSeconds: 20
         volumeMounts:
         - name: frontend-config
-          mountPath: /etc/nginx/nginx.cnf
-          subPath: nginx.cnf
+          mountPath: /etc/nginx/nginx.conf
+          subPath: nginx.conf
       volumes:
           - name: frontend-config
             configMap:
@@ -135,7 +135,7 @@ spec:
   selector:
     project: ecommerce-project
     component: frontend
-    tier: backend
+    tier: frontend
   ports:
     - protocol: TCP
       port: 80 #service Port
