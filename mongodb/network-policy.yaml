@@ -1,0 +1,28 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: mongodb-accept-catalogue
+  namespace: default
+spec:
+  podSelector:
+    matchLabels:
+      project: ecommerce-project
+      component: mongodb
+      tier: db
+  policyTypes:
+  - Ingress
+  ingress:
+  - from:
+    - podSelector:
+        matchLabels:
+          project: ecommerce-project
+          component: catalogue
+          tier: backend
+    - podSelector:
+        matchLabels:
+          project: ecommerce-project
+          component: user
+          tier: backend
+    ports:
+    - protocol: TCP
+      port: 27017
