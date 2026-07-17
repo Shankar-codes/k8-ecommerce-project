@@ -40,16 +40,16 @@ spec:
         envFrom:
         - configMapRef:
             name: mysql-config
-        readinessProbe:
-          tcpSocket:
-            port: 3306
-          initialDelaySeconds: 10
-          periodSeconds: 10
-        livenessProbe:
-          tcpSocket:
-            port: 3306
-          initialDelaySeconds: 20
-          periodSeconds: 20
+        # readinessProbe:
+        #   tcpSocket:
+        #     port: 3306
+        #   initialDelaySeconds: 10
+        #   periodSeconds: 10
+        # livenessProbe:
+        #   tcpSocket:
+        #     port: 3306
+        #   initialDelaySeconds: 20
+        #   periodSeconds: 20
         volumeMounts:
         - name: mysql-config
           mountPath: /etc/mysql/conf.d/my.cnf
